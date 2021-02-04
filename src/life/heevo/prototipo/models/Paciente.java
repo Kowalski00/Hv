@@ -1,6 +1,7 @@
 package life.heevo.prototipo.models;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,23 +12,28 @@ import java.util.Date;
  */
 public class Paciente {
 
-	private int cpf;
+	private Long cpf;
 	private String Nome;
 	private String dataCriado;
+	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
+	private static ArrayList<Prescricao> listaPrescricao = new ArrayList<Prescricao>();
 	
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
-	public Paciente(int cpf, String nome) {
+	public Paciente(Long cpf, String nome) {
 		super();
 		this.cpf = cpf;
-		Nome = nome;
+		this.Nome = nome;
 		this.dataCriado = formatter.format(date);
 	}
-	public int getCpf() {
+	public void addPron (Prontuario pron) {
+		listaProntuario.add(pron.getUniqueID());
+	}
+	public Long getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 	public String getNome() {
@@ -42,6 +48,10 @@ public class Paciente {
 	public void setDataCriado(String dataCriado) {
 		this.dataCriado = dataCriado;
 	}
+	public void addPrescricao(Prescricao P) {
+		listaPrescricao.add(P);
+	}
+	
 	@Override
 	public String toString() {
 		return "Paciente: CPF=" + cpf + ", Nome=" + Nome;

@@ -5,15 +5,17 @@ import java.util.Scanner;
 
 import life.heevo.prototipo.models.PP;
 import life.heevo.prototipo.models.Paciente;
+import life.heevo.prototipo.models.Prontuario;
 
 public class userPP {
 	
 	static int codMenuPP=0;
 	static boolean sairPP=false;
 	private static Scanner scanner = new Scanner(System.in);
+
 	
 	public static ArrayList<Paciente> listaPaciente = new ArrayList<Paciente>();
-	
+	private static ArrayList<Prontuario> listaProntuario = new ArrayList<Prontuario>();
 
 	public static void menuPP(PP userPP) {
 		
@@ -26,7 +28,8 @@ public class userPP {
 			switch (codMenuPP) {
 			case 1:{
 				try {
-					cadastrarPaciente();
+
+					
 				}catch(Exception e) {
 					System.out.println(e);
 				}
@@ -64,21 +67,30 @@ public class userPP {
 		
 	}
 
-	public static void cadastrarPaciente() throws Exception {
+	public static void cadastrarPaciente(PP Prof) throws Exception {
 		System.out.println("[*] Cadastro de Pacientes.");
 		System.out.println("\n Nome: ");
 		String nome = scanner.next();
 		System.out.println("\n CPF: ");
-		int CPF = scanner.nextInt();
+		Long CPF = scanner.nextLong();
 		Paciente existente = consultarPacientePorCPF(CPF);
 		if(existente==null) {
+			Prof.addProntuario(nome, CPF);
 			Paciente novoPac = new Paciente(CPF, nome);
+
 			listaPaciente.add(novoPac);
-			System.out.println("\n[*] Profissional cadastrado!\n");
-		}else throw new Exception("\n[*] Já existe um profissional com este CPF.\n");
-		
+			System.out.println("\n[*] Paciente cadastrado!\n");
+			
+		}else throw new Exception("\n[*] Já existe um paciente com este CPF.\n");
+		// no caso de já existir paciente, talvez a gente devesse entrar direto no menu do paciente
 	}
-	public static Paciente consultarPacientePorCPF(int CPF) {
+	
+	public static void acessarPaciente(Long CPF) {
+		Paciente Paci = consultarPacientePorCPF(CPF);
+
+	}
+	
+	public static Paciente consultarPacientePorCPF(Long CPF) {
 		for(Paciente i:listaPaciente) {
 			if(i.getCpf()==CPF)
 				return i;

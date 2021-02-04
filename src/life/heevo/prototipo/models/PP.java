@@ -1,5 +1,7 @@
 package life.heevo.prototipo.models;
 
+import java.util.ArrayList;
+
 /**
  * Representa um Profissional Prescritor
  * 
@@ -9,17 +11,21 @@ package life.heevo.prototipo.models;
 public class PP {
 	
 	private String nome;
-	private int cpf;
+	private Long cpf;
 	private int codRegPro;
+	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
 	
-	public PP(String nome, int cpf, int codRegPro) {
+	public PP(String nome, Long cpf, int codRegPro) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.codRegPro = codRegPro;
 	}
 
-
+	public void addProntuario(Long UniqueID){
+		listaProntuario.add(UniqueID);
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -28,11 +34,11 @@ public class PP {
 		this.nome = nome;
 	}
 
-	public int getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 
