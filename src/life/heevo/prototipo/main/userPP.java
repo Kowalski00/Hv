@@ -75,7 +75,7 @@ public class userPP {
 		Long CPF = scanner.nextLong();
 		Paciente existente = consultarPacientePorCPF(CPF);
 		if(existente==null) {
-			Prof.addProntuario(nome, CPF);
+			Prof.addProntuario(CPF);
 			Paciente novoPac = new Paciente(CPF, nome);
 
 			listaPaciente.add(novoPac);
