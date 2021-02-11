@@ -75,9 +75,11 @@ public class userPP {
 		Long CPF = scanner.nextLong();
 		Paciente existente = consultarPacientePorCPF(CPF);
 		if(existente==null) {
-			Prof.addProntuario(nome, CPF);
+			
 			Paciente novoPac = new Paciente(CPF, nome);
-
+			Prontuario novoProntuario = new Prontuario(nome, CPF, Prof.getCpf());
+			Prof.addProntuario(novoProntuario.getUniqueID());
+			listaProntuario.add(novoProntuario);
 			listaPaciente.add(novoPac);
 			System.out.println("\n[*] Paciente cadastrado!\n");
 			
