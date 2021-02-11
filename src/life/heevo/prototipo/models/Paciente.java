@@ -27,8 +27,8 @@ public class Paciente {
 		this.Nome = nome;
 		this.dataCriado = formatter.format(date);
 	}
-	public void addPron (Prontuario pron) {
-		listaProntuario.add(pron.getUniqueID());
+	public void addPron (Long UniqueID) {
+		listaProntuario.add(UniqueID);
 	}
 	public Long getCpf() {
 		return cpf;

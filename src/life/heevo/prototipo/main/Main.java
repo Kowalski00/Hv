@@ -3,8 +3,10 @@ package life.heevo.prototipo.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import life.heevo.prototipo.models.Medicamento;
 import life.heevo.prototipo.models.PP;
 import life.heevo.prototipo.models.Paciente;
+import life.heevo.prototipo.models.Prescricao;
 import life.heevo.prototipo.models.Prontuario;
 
 public class Main {
@@ -144,15 +146,18 @@ public class Main {
 			int opc = scanner.nextInt();
 			if(opc == 1) try{ 
 				cadastrarPaciente();
+				existente = consultarPacientePorCPF(CPF);
 			}catch(Exception e) {
 				System.out.println(e);
 			}
+			else return;
 		}
 		Prontuario Pron = consultarProntuarioPorCPF(CPF, userPP.getCpf());
 		if (Pron==null) {
 			Pron = new Prontuario(existente.getNome(),CPF,userPP.getCpf());
 			listaProntuario.add(Pron);
-			existente.addPron(Pron);
+			existente.addPron(Pron.getUniqueID());//Adicionando no cadastro do médico e do paciente o prontuario
+			userPP.addProntuario(Pron.getUniqueID());
 		}
 		do {
 			Pron.imprimirEntradas();
@@ -172,11 +177,10 @@ public class Main {
 				}
 				break;
 			}
+			
 			case 2:{
 				try {
-					System.out.println("[*] Digite a Prescrição:");
-					
-
+					Prescrever(userPP, existente);
 				}catch(Exception e) {
 					System.out.println(e);
 				}
@@ -268,5 +272,29 @@ public class Main {
 		}
 		return null;
 	}
-	
+
+	//FUNCOES PRESCRIÇÃO
+	public static void Prescrever(PP userPP, Paciente existente) {
+		Prescricao presc = new Prescricao(userPP.getNome(),Long.toString(userPP.getCodRegPro()),existente.getNome());
+		//BUG: SE EU TENTO CRIAR MAIS DE UMA PRESCRICAO NA MESMA SESSÃO, FICA TUDO UMA SÓ
+		boolean cont = true;
+		do{
+			System.out.println("[*] Digite o medicamento (nome, tipo, dosagem, frequencia, qtde), 99 para terminar:");
+			String meds = scanner.next();
+			if(meds.equals("99")) cont=false;
+			else {
+				String tipo = scanner.next();
+				String dosagem = scanner.next();
+				String frequencia = scanner.next();
+				int qtde = scanner.nextInt();
+				Medicamento M = new Medicamento(meds, tipo, dosagem, frequencia, qtde);
+				presc.addMedicamento(M);
+			}
+		} while(cont==true);
+		existente.addPrescricao(presc);
+		presc.displayPrescricao();
+		presc.imprimir();
+	}
 }
+
+

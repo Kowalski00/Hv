@@ -3,6 +3,10 @@ package life.heevo.prototipo.models;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.awt.*;
+import java.awt.print.*;
+import javax.print.attribute.*;
+import javax.swing.UIManager;
 
 public class Prescricao {
 	private String dataCriado;
@@ -41,7 +45,29 @@ public class Prescricao {
 	}
 	
 	public void imprimir() {
-		// TBC
+		String conteudo = "[*] RECEITA DA HEEVO[*]\n";
+		for(Medicamento i:medicamentos) {
+			conteudo = (conteudo + i.getMedicamento() + "\t" + i.getDosagem() + "\t" + i.getFrequencia() + "\t"
+					+ Integer.toString(i.getQtde()) +"\n");
+		}
+		System.out.println(conteudo);
+		try {
+			String cn = UIManager.getSystemLookAndFeelClassName();
+			UIManager.setLookAndFeel(cn); // Use the native L&F
+		} catch (Exception cnf) {
+		}
+		PrinterJob job = PrinterJob.getPrinterJob();
+		PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+		PageFormat pf = job.pageDialog(aset); //permite ao usuário formatar a pagina de impressão
+		job.setPrintable(new Impressora(conteudo), pf);
+		boolean ok = job.printDialog(aset); //abre o setup de impressão
+		if (ok) {
+			try {
+				job.print(aset); //manda imprimir
+			} catch (PrinterException ex) {
+				/* The job did not successfully complete */
+			}
+		}
 	}
 	
 }
