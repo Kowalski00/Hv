@@ -4,7 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import life.heevo.prototipo.DAO.EntradaDAO;
 
+
+/**
+ * Representa um prontuário
+ * 
+ * @author hl
+ * @author rk
+ *
+ */
 public class Prontuario {
 	private Long uniqueID; //Identificador do Prontuário
 	private String dataCriado; // Data de criação do prontuário (não da entrada)
@@ -35,7 +44,7 @@ public class Prontuario {
 	
 	public void imprimirEntradas () {
 		for (Entrada i:entradas) {
-			i.imprimirEntrada();
+			EntradaDAO.imprimirEntrada(i);
 		}
 	}
 

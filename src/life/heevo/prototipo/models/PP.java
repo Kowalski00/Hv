@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Representa um Profissional Prescritor
  * 
+ * @author hl
  * @author rk
  *
  */
@@ -16,7 +17,6 @@ public class PP {
 	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
 	
 	public PP(String nome, Long cpf, int codRegPro) {
-		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.codRegPro = codRegPro;

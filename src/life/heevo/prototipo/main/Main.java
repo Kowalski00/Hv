@@ -3,6 +3,7 @@ package life.heevo.prototipo.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import life.heevo.prototipo.DAO.MedicamentoDAO;
 import life.heevo.prototipo.models.Medicamento;
 import life.heevo.prototipo.models.PP;
 import life.heevo.prototipo.models.Paciente;
@@ -277,6 +278,10 @@ public class Main {
 	public static void Prescrever(PP userPP, Paciente existente) {
 		Prescricao presc = new Prescricao(userPP.getNome(),Long.toString(userPP.getCodRegPro()),existente.getNome());
 		//BUG: SE EU TENTO CRIAR MAIS DE UMA PRESCRICAO NA MESMA SESSÃO, FICA TUDO UMA SÓ
+		/*
+		 * TODO Criar um do-while para verificar se o PP deseja adicionar uma nova prescrição ou não
+		 *      onde em cada while será instanciado um novo objeto de Prescricao
+		 */
 		boolean cont = true;
 		do{
 			System.out.println("[*] Digite o medicamento (nome, tipo, dosagem, frequencia, qtde), 99 para terminar:");
@@ -288,12 +293,12 @@ public class Main {
 				String frequencia = scanner.next();
 				int qtde = scanner.nextInt();
 				Medicamento M = new Medicamento(meds, tipo, dosagem, frequencia, qtde);
-				presc.addMedicamento(M);
+				MedicamentoDAO.addMedicamento(M);
 			}
 		} while(cont==true);
 		existente.addPrescricao(presc);
-		presc.displayPrescricao();
-		presc.imprimir();
+		MedicamentoDAO.displayPrescricao();
+		MedicamentoDAO.imprimir();
 	}
 }
 

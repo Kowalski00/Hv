@@ -7,6 +7,7 @@ import java.util.Date;
 /**
  * Representa um Paciente
  * 
+ * @author hl
  * @author rk
  *
  */
@@ -22,7 +23,6 @@ public class Paciente {
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
 	public Paciente(Long cpf, String nome) {
-		super();
 		this.cpf = cpf;
 		this.Nome = nome;
 		this.dataCriado = formatter.format(date);

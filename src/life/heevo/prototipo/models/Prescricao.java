@@ -7,67 +7,73 @@ import java.awt.*;
 import java.awt.print.*;
 import javax.print.attribute.*;
 import javax.swing.UIManager;
-
+/**
+ * Representa uma Prescrição
+ * 
+ * @author hl
+ * @author rk
+ *
+ */
 public class Prescricao {
+	
 	private String dataCriado;
 	private String nomePP;
 	private String CRM;
 	private String nomePaciente;
-	private static ArrayList<Medicamento> medicamentos = new ArrayList<Medicamento>();//lista de medicamentos
+	
 	
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
 	public Prescricao(String nomePP, String CRM, String nomePaciente) {
-		super(); // copiado do Ramon, n sei para que serve
 		this.nomePP = nomePP;
 		this.nomePaciente = nomePaciente;
 		this.CRM = CRM;
 		this.dataCriado = formatter.format(date);	
 	}
 	
-	public void addMedicamento (Medicamento med) {
-		medicamentos.add(med);
+	
+
+	@Override
+	public String toString() {
+		return "Prescricao: " + dataCriado + ", Profissional: " + nomePP + "( CRM: " + CRM + " ) Paciente: "
+				+ nomePaciente;
+	}
+
+
+
+	public String getDataCriado() {
+		return dataCriado;
+	}
+
+	public void setDataCriado(String dataCriado) {
+		this.dataCriado = dataCriado;
+	}
+
+	public String getNomePP() {
+		return nomePP;
+	}
+
+	public void setNomePP(String nomePP) {
+		this.nomePP = nomePP;
+	}
+
+	public String getCRM() {
+		return CRM;
+	}
+
+	public void setCRM(String cRM) {
+		CRM = cRM;
+	}
+
+	public String getNomePaciente() {
+		return nomePaciente;
+	}
+
+	public void setNomePaciente(String nomePaciente) {
+		this.nomePaciente = nomePaciente;
 	}
 	
-	public void removerMedicamento (Medicamento med) {
-		medicamentos.remove(med);
-		// aqui é necessário entender melhor como vamos juntar o front com o back
-		//o usuário deve poder escrever e apagar a receita sem perceber que está 
-		//acionando métodos
-	}
 	
-	public void displayPrescricao () {
-		System.out.println("\n[*]------------------------------------------------------[*]");
-		for(Medicamento i:medicamentos)
-			System.out.println(i);
-		System.out.println("\n[*]------------------------------------------------------[*]\n");
-	}
-	
-	public void imprimir() {
-		String conteudo = "[*] RECEITA DA HEEVO[*]\n";
-		for(Medicamento i:medicamentos) {
-			conteudo = (conteudo + i.getMedicamento() + "\t" + i.getDosagem() + "\t" + i.getFrequencia() + "\t"
-					+ Integer.toString(i.getQtde()) +"\n");
-		}
-		System.out.println(conteudo);
-		try {
-			String cn = UIManager.getSystemLookAndFeelClassName();
-			UIManager.setLookAndFeel(cn); // Use the native L&F
-		} catch (Exception cnf) {
-		}
-		PrinterJob job = PrinterJob.getPrinterJob();
-		PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
-		PageFormat pf = job.pageDialog(aset); //permite ao usuário formatar a pagina de impressão
-		job.setPrintable(new Impressora(conteudo), pf);
-		boolean ok = job.printDialog(aset); //abre o setup de impressão
-		if (ok) {
-			try {
-				job.print(aset); //manda imprimir
-			} catch (PrinterException ex) {
-				/* The job did not successfully complete */
-			}
-		}
-	}
 	
 }
