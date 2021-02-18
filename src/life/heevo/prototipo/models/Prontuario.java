@@ -20,13 +20,11 @@ public class Prontuario {
 	private Long cpf; // CPF do paciente
 	private Long cpfPro; // CPF do profissional
 	private String nome; //nome do paciente
-	private static ArrayList<Entrada> entradas = new ArrayList<Entrada>();//lista de entradas
 	
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
 	public Prontuario (String nome, Long cpf, Long cpfPro) {
-		super(); // COPIEI DO PP, PARA QUE SERVE?
 		this.cpf = cpf;
 		this.cpfPro = cpfPro;
 		this.nome = nome;
@@ -37,16 +35,6 @@ public class Prontuario {
 		this.uniqueID = uni; //Esse é um indicador único do Prontuário
 	}
 	
-	public void novaEntrada (String texto) {
-		Entrada novaEntrada = new Entrada(texto);
-		entradas.add(novaEntrada);
-	}
-	
-	public void imprimirEntradas () {
-		for (Entrada i:entradas) {
-			EntradaDAO.imprimirEntrada(i);
-		}
-	}
 
 	public Long getUniqueID() {
 		return uniqueID;
