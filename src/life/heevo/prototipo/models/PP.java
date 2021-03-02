@@ -15,12 +15,6 @@ public class PP {
 	private Long cpf;
 	private int codRegPro;
 	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
-	
-	public PP(String nome, Long cpf, int codRegPro) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.codRegPro = codRegPro;
-	}
 
 	public void addProntuario(Long UniqueID){
 		listaProntuario.add(UniqueID);

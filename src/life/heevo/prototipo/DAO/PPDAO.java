@@ -1,18 +1,31 @@
 package life.heevo.prototipo.DAO;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import life.heevo.prototipo.models.PP;
+import life.heevo.prototipo.repositorios.impl.PPRepositorioJdbc;
+import life.heevo.prototipo.repositorios.interfaces.HeevoRepositorio;
 
 public class PPDAO {
 
 
 	private static Scanner scanner = new Scanner(System.in);
 	
-	public static ArrayList<PP> listaPP = new ArrayList<PP>();
+	public static List<PP> listaPP = new ArrayList<PP>();
+	
+	public static List<PP> listaPP() throws Exception {
+		HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
+		listaPP = PPRepo.listar();
+		if(listaPP.isEmpty())throw new Exception("[*] Não há PP's cadastrados.\n");
+		return listaPP;
+	}
+	
 	
 	public static void consultarPP() throws Exception {
+		HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
+		listaPP = PPRepo.listar();
 		if(listaPP.isEmpty())throw new Exception("[*] Não há PP's cadastrados.\n");
 		System.out.println("\n[*]------------------------------------------------------[*]");
 		for(PP i:listaPP)
@@ -31,8 +44,13 @@ public class PPDAO {
 		int CodReg = scanner.nextInt();
 		PP existente = consultarPPporCPF(CPF);
 		if(existente==null) {
-			PP novoPP = new PP(nome, CPF, CodReg);
+			PP novoPP = new PP();
+			novoPP.setCpf(CPF);
+			novoPP.setNome(nome);
+			novoPP.setCodRegPro(CodReg);
 			listaPP.add(novoPP);
+			HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
+			PPRepo.inserir(novoPP);
 			System.out.println("\n[*] Profissional cadastrado!\n");
 		}else throw new Exception("\n[*] Já existe um profissional com este CPF.\n");
 		

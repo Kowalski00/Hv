@@ -2,6 +2,7 @@ package life.heevo.prototipo.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 import life.heevo.prototipo.DAO.EntradaDAO;
 import life.heevo.prototipo.DAO.MedicamentoDAO;
@@ -77,7 +78,7 @@ public class Main {
 	}
 
 	private static void logar() throws Exception{
-		ArrayList<PP> listaPP = PPDAO.listaPP;
+		List<PP> listaPP = PPDAO.listaPP();
 		if(listaPP.isEmpty())throw new Exception("[*] Não há Profissionias cadastrados.\n");
 		Long cpfPP;
 		System.out.println("[*] Digite seu cpf:");
