@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Paciente {
 
-	private Long cpf;
+	private String cpf;
 	private String Nome;
 	private String dataCriado;
 	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
@@ -22,18 +22,19 @@ public class Paciente {
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
-	public Paciente(Long cpf, String nome) {
-		this.cpf = cpf;
-		this.Nome = nome;
-		this.dataCriado = formatter.format(date);
-	}
+//	public Paciente(String cpf, String nome) {
+//		this.cpf = cpf;
+//		this.Nome = nome;
+//		this.dataCriado = formatter.format(date);
+//	}
+	
 	public void addPron (Long UniqueID) {
 		listaProntuario.add(UniqueID);
 	}
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getNome() {

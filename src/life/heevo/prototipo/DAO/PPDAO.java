@@ -39,9 +39,9 @@ public class PPDAO {
 		System.out.println("\n Nome: ");
 		String nome = scanner.next();
 		System.out.println("\n CPF: ");
-		Long CPF = scanner.nextLong();
+		String CPF = scanner.next();
 		System.out.println("\n CodReg: ");
-		int CodReg = scanner.nextInt();
+		String CodReg = scanner.next();
 		PP existente = consultarPPporCPF(CPF);
 		if(existente==null) {
 			PP novoPP = new PP();
@@ -56,7 +56,7 @@ public class PPDAO {
 		
 	}
 	
-	public static PP consultarPPporCPF(Long CPF) {
+	public static PP consultarPPporCPF(String CPF) {
 		for(PP i:listaPP) {
 			if(i.getCpf()==CPF)
 				return i;

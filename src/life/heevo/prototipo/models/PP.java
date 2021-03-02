@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class PP {
 	
 	private String nome;
-	private Long cpf;
-	private int codRegPro;
+	private String cpf;
+	private String codRegPro;
 	private static ArrayList<Long> listaProntuario = new ArrayList<Long>();
 
 	public void addProntuario(Long UniqueID){
@@ -28,19 +28,19 @@ public class PP {
 		this.nome = nome;
 	}
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public int getCodRegPro() {
+	public String getCodRegPro() {
 		return codRegPro;
 	}
 
-	public void setCodRegPro(int codRegPro) {
+	public void setCodRegPro(String codRegPro) {
 		this.codRegPro = codRegPro;
 	}
 

@@ -24,12 +24,12 @@ public class PPRepositorioJdbc implements HeevoRepositorio<PP> {
 		ArrayList<PP> pps = new ArrayList<PP>();
 		try (Connection conexao = FabricaConexaoJdbc.criarConexao()) {
 			Statement comando = conexao.createStatement();
-			ResultSet rs = comando.executeQuery("SELECT * FROM pp");
+			ResultSet rs = comando.executeQuery("SELECT * FROM pps");
 			while (rs.next()) {
 				PP prof = new PP();
-				prof.setCpf(rs.getLong("CPF"));
-				prof.setNome(rs.getString("nome"));
-				prof.setCodRegPro(rs.getInt("CRM"));
+				prof.setCpf(rs.getString("CPFpp"));
+				prof.setNome(rs.getString("NOMpp"));
+				prof.setCodRegPro(rs.getString("codregpro"));
 				pps.add(prof);
 			}
 		}
@@ -39,10 +39,10 @@ public class PPRepositorioJdbc implements HeevoRepositorio<PP> {
 	@Override
 	public void inserir(PP entidade) throws SQLException, IOException {
 		try(Connection conexao =FabricaConexaoJdbc.criarConexao())  {
-			PreparedStatement comando = conexao.prepareStatement("INSERT INTO pp (CPF, nome, CRM) " + "VALUES (?, ?, ?)");
-			comando.setLong(1, entidade.getCpf());// indice jdbc começa em 1, mySQL começa em 0
-			comando.setString(2, entidade.getNome());
-			comando.setInt(3,  entidade.getCodRegPro());
+			PreparedStatement comando = conexao.prepareStatement("INSERT INTO pps (NOMpp, CPFpp, codregpro) " + "VALUES (?, ?, ?)");
+			comando.setString(2, entidade.getCpf());// indice jdbc começa em 1, mySQL começa em 0
+			comando.setString(1, entidade.getNome());
+			comando.setString(3,  entidade.getCodRegPro());
 			comando.execute();
 		} 
 	}

@@ -80,13 +80,12 @@ public class Main {
 	private static void logar() throws Exception{
 		List<PP> listaPP = PPDAO.listaPP();
 		if(listaPP.isEmpty())throw new Exception("[*] Não há Profissionias cadastrados.\n");
-		Long cpfPP;
+		String cpfPP;
 		System.out.println("[*] Digite seu cpf:");
-		cpfPP = scanner.nextLong();
+		cpfPP = scanner.next();
 		PP pp = PPDAO.consultarPPporCPF(cpfPP);
 		if( pp != null) userPP.menuPP(pp);
 		else throw new Exception("[*] CPF não encontrado.");
-
 	}
 	
 	
