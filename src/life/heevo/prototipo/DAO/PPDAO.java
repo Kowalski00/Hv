@@ -43,25 +43,32 @@ public class PPDAO {
 		System.out.println("\n CodReg: ");
 		String CodReg = scanner.next();
 		PP existente = consultarPPporCPF(CPF);
-		if(existente==null) {
-			PP novoPP = new PP();
-			novoPP.setCpf(CPF);
-			novoPP.setNome(nome);
-			novoPP.setCodRegPro(CodReg);
-			listaPP.add(novoPP);
-			HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
-			PPRepo.inserir(novoPP);
-			System.out.println("\n[*] Profissional cadastrado!\n");
-		}else throw new Exception("\n[*] Já existe um profissional com este CPF.\n");
+		if (existente == null) {
+			try {
+				PP novoPP = new PP();
+				novoPP.setCpf(CPF);
+				novoPP.setNome(nome);
+				novoPP.setCodRegPro(CodReg);
+				HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
+				PPRepo.inserir(novoPP);
+				System.out.println("\n[*] Profissional cadastrado!\n");
+			} catch (Exception e) {
+				System.out.println("Erro:" + e.getMessage());
+			}
+		} else
+			throw new Exception("\n[*] Já existe um profissional com este CPF.\n");
 		
 	}
 	
 	public static PP consultarPPporCPF(String CPF) {
-		for(PP i:listaPP) {
-			if(i.getCpf()==CPF)
-				return i;
+		try {
+			HeevoRepositorio<PP> PPRepo = new PPRepositorioJdbc();
+			PP prof = PPRepo.selecionar(CPF);
+			return prof;
+		} catch(Exception e) {
+			System.out.println("Erro:" + e.getMessage());
+			return null;
 		}
-		return null;
 	}
 
 }

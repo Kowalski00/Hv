@@ -78,8 +78,8 @@ public class Main {
 	}
 
 	private static void logar() throws Exception{
-		List<PP> listaPP = PPDAO.listaPP();
-		if(listaPP.isEmpty())throw new Exception("[*] Não há Profissionias cadastrados.\n");
+		//List<PP> listaPP = PPDAO.listaPP();
+		//if(listaPP.isEmpty())throw new Exception("[*] Não há Profissionias cadastrados.\n");
 		String cpfPP;
 		System.out.println("[*] Digite seu cpf:");
 		cpfPP = scanner.next();

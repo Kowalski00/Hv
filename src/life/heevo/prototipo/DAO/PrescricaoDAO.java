@@ -12,7 +12,7 @@ public class PrescricaoDAO {
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void Prescrever(PP userPP, Paciente existente) {
-		Prescricao presc = new Prescricao(userPP.getNome(),Long.toString(userPP.getCodRegPro()),existente.getNome());
+		Prescricao presc = new Prescricao(userPP.getNome(),userPP.getCodRegPro(),existente.getNome());
 		//BUG: SE EU TENTO CRIAR MAIS DE UMA PRESCRICAO NA MESMA SESSÃO, FICA TUDO UMA SÓ
 		/*
 		 * TODO Criar um do-while para verificar se o PP deseja adicionar uma nova prescrição ou não

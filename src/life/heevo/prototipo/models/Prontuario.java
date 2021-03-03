@@ -15,37 +15,42 @@ import life.heevo.prototipo.DAO.EntradaDAO;
  *
  */
 public class Prontuario {
-	private Long uniqueID; //Identificador do Prontuário
+	private String uniqueID; //Identificador do Prontuário
 	private String dataCriado; // Data de criação do prontuário (não da entrada)
-	private Long cpf; // CPF do paciente
-	private Long cpfPro; // CPF do profissional
+	private String cpf; // CPF do paciente
+	private String cpfPro; // CPF do profissional
 	private String nome; //nome do paciente
 	
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
-	public Prontuario (String nome, Long cpf, Long cpfPro) {
-		this.cpf = cpf;
-		this.cpfPro = cpfPro;
-		this.nome = nome;
-		this.dataCriado = formatter.format(date);		
-		long bigCpf = (int) Math.floor(cpf/100); //Descartando os dois últimos digitos
-		long bigCpfPro = (int) Math.floor(cpfPro/100);
-		long uni = ((bigCpf+bigCpfPro+1)*(bigCpf+bigCpfPro)/2)+bigCpfPro;
-		this.uniqueID = uni; //Esse é um indicador único do Prontuário
+	public Prontuario () {
+		this.dataCriado = formatter.format(date);
 	}
 	
 
-	public Long getUniqueID() {
+	public String getUniqueID() {
 		return uniqueID;
 	}
+	
+	public void setUniqueID(String uniId) {
+		this.uniqueID = uniId;
+	}
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public Long getCpfPro() {
+	public void setCpf (String CPF) {
+		this.cpf = CPF;
+	}
+	
+	public String getCpfPro() {
 		return cpfPro;
+	}
+	
+	public void setCpfPro(String CPFPro){
+		this.cpfPro = CPFPro;
 	}
 	
 	public String getDataCriado() {
@@ -56,4 +61,7 @@ public class Prontuario {
 		return nome;
 	}
 	
+	public void setNome (String nome) {
+		this.nome = nome;
+	}
 }

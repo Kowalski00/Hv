@@ -22,11 +22,9 @@ public class Paciente {
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
-//	public Paciente(String cpf, String nome) {
-//		this.cpf = cpf;
-//		this.Nome = nome;
-//		this.dataCriado = formatter.format(date);
-//	}
+	public Paciente() {
+		this.dataCriado = formatter.format(date);//PRECISA?
+	}
 	
 	public void addPron (Long UniqueID) {
 		listaProntuario.add(UniqueID);
@@ -46,6 +44,7 @@ public class Paciente {
 	public String getDataCriado() {
 		return dataCriado;
 	}
+
 	public void setDataCriado(String dataCriado) {
 		this.dataCriado = dataCriado;
 	}

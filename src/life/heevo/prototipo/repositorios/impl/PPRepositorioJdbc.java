@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 import life.heevo.prototipo.models.PP;
 import life.heevo.prototipo.repositorios.interfaces.HeevoRepositorio;
@@ -15,9 +14,18 @@ import life.heevo.prototipo.fabricas.FabricaConexaoJdbc;
 
 public class PPRepositorioJdbc implements HeevoRepositorio<PP> {
 
-	public Object selecionar(long ID) throws SQLException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+	public PP selecionar(String ID) throws SQLException, IOException {
+		PP prof = new PP();
+		try (Connection conexao = FabricaConexaoJdbc.criarConexao()) {
+			PreparedStatement comando = conexao.prepareStatement("SELECT * FROM pps WHERE CPFpp = (?)");
+			comando.setString(1, ID);
+			ResultSet rs = comando.executeQuery();
+			rs.next(); //O result set inicia com o cursor acima da primeira linha de resultados
+			prof.setCpf(rs.getString("CPFpp"));
+			prof.setNome(rs.getString("NOMpp"));
+			prof.setCodRegPro(rs.getString("codregpro"));
+		}
+		return prof;
 	}
 
 	public ArrayList<PP> listar() throws SQLException, IOException {

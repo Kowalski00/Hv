@@ -22,7 +22,7 @@ public class userPP {
 			switch (codMenuPP) {
 			case 1:{
 				try {
-
+					PacienteDAO.cadastrarPaciente();
 					
 				}catch(Exception e) {
 					System.out.println(e);
