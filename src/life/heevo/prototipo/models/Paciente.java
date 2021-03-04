@@ -54,7 +54,7 @@ public class Paciente {
 	
 	@Override
 	public String toString() {
-		return "Paciente: CPF=" + cpf + ", Nome=" + Nome;
+		return "Paciente: CPF=" + cpf + ", Nome=" + Nome + ", Data=" + dataCriado;
 	}
 	
 	

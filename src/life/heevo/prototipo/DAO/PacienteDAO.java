@@ -8,14 +8,15 @@ import life.heevo.prototipo.models.Paciente;
 import life.heevo.prototipo.models.Prontuario;
 import life.heevo.prototipo.repositorios.impl.PPRepositorioJdbc;
 import life.heevo.prototipo.repositorios.impl.PacienteRepositorioJdbc;
+import life.heevo.prototipo.repositorios.impl.ProntuarioRepositorioJdbc;
 import life.heevo.prototipo.repositorios.interfaces.HeevoRepositorio;
 
 public class PacienteDAO {
-	
+
 	public static ArrayList<Paciente> listaPaciente = new ArrayList<Paciente>();
-	
+
 	private static Scanner scanner = new Scanner(System.in);
-	
+
 	public static void consultarPaciente() throws Exception {
 		try {
 			HeevoRepositorio<Paciente> paciRepo = new PacienteRepositorioJdbc();
@@ -30,19 +31,18 @@ public class PacienteDAO {
 			System.out.println("Erro:" + e.getMessage());
 		}
 	}
-	
+
 	public static Paciente consultarPacientePorCPF(String CPF) {
 		try {
 			HeevoRepositorio<Paciente> paciRepo = new PacienteRepositorioJdbc();
 			Paciente paci = paciRepo.selecionar(CPF);
 			return paci;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Erro:" + e.getMessage());
 		}
 		return null;
 	}
-	
-	
+
 	public static void cadastrarPaciente() throws Exception {
 		System.out.println("[*] Cadastro de Pacientes.");
 		System.out.println("\n Nome: ");
@@ -67,43 +67,80 @@ public class PacienteDAO {
 			}
 		} else
 			throw new Exception("\n[*] Já existe um paciente com este CPF.\n");
-		// no caso de já existir paciente, talvez a gente devesse entrar direto no menu do paciente
+		// no caso de já existir paciente, talvez a gente devesse entrar direto no menu
+		// do paciente
 	}
-	
-	
 
-	static int codMenuPront=0;
-	static boolean sairMenuPront=false;
+	static int codMenuPront = 0;
+	static boolean sairMenuPront = false;
+
 	
-	/*
-	 * public static void acessarPaciente(PP PP) {
-	 * System.out.println("[*] Acessar Paciente"); System.out.println("\n CPF: ");
-	 * String CPF = scanner.next(); Paciente existente =
-	 * consultarPacientePorCPF(CPF); if(existente==null) {
-	 * System.out.println("[*] Este Paciente Ainda Não Foi Cadastrado");
-	 * System.out.println("[*] Gostaria de Cadastrar novo Paciente?");
-	 * System.out.println("[*] 1-Sim; 2-Não"); int opc = scanner.nextInt(); if(opc
-	 * == 1) try{ cadastrarPaciente(PP); existente = consultarPacientePorCPF(CPF);
-	 * }catch(Exception e) { System.out.println(e); } else return; } Prontuario Pron
-	 * = ProntuarioDAO.consultarProntuarioPorCPF(CPF, PP.getCpf()); if (Pron==null)
-	 * { Pron = new Prontuario(existente.getNome(),CPF,PP.getCpf());
-	 * ProntuarioDAO.listaProntuario.add(Pron);
-	 * existente.addPron(Pron.getUniqueID());//Adicionando no cadastro do médico e
-	 * do paciente o prontuario PP.addProntuario(Pron.getUniqueID()); } do { Long
-	 * IDPron = Pron.getUniqueID(); EntradaDAO.imprimirEntradas(IDPron);
-	 * System.out.println("[*] Menu Prontuario");
-	 * System.out.println("[*] 1-Nova Entrada, 2-Prescrever, 99-Voltar.");
-	 * System.out.print("[*] Selecione uma opção: "); codMenuPront =
-	 * scanner.nextInt(); scanner.nextLine(); //Para pular de linha, do contrário dá
-	 * erro quando tentamos adicionar nova entrada switch (codMenuPront) { case 1:{
-	 * try { System.out.println("[*] Digite a Entrada:"); String entrada =
-	 * scanner.nextLine(); EntradaDAO.novaEntrada(entrada, IDPron); }catch(Exception
-	 * e) { System.out.println(e); } break; }
-	 * 
-	 * case 2:{ try { PrescricaoDAO.Prescrever(PP, existente); }catch(Exception e) {
-	 * System.out.println(e); } break; } case 99:{
-	 * System.out.println("\n[*] Saindo.."); sairMenuPront=true; break; } }
-	 * }while(sairMenuPront==false); }
-	 */
+	public static void acessarPaciente(PP PP) {
+		System.out.println("[*] Acessar Paciente"); System.out.println("\n CPF: ");
+		String CPF = scanner.next(); 
+		Paciente existente = consultarPacientePorCPF(CPF); 
+		if(existente==null) {
+			System.out.println("[*] Este Paciente Ainda Não Foi Cadastrado");
+			System.out.println("[*] Gostaria de Cadastrar novo Paciente?");
+			System.out.println("[*] 1-Sim; 2-Não"); 
+			int opc = scanner.nextInt(); 
+			if(opc== 1) 
+				try{ 
+					cadastrarPaciente(); 
+					existente = consultarPacientePorCPF(CPF);
+					}catch(Exception e) { 
+						System.out.println(e); 
+						} 
+			else return; 
+			} 
+		Prontuario Pron	= ProntuarioDAO.consultarProntuarioPorCPF(CPF, PP.getCpf());
+		if (Pron==null)
+		{
+			try {
+				Pron = new Prontuario();
+				Pron.setNome(existente.getNome());
+				Pron.setCpf(CPF);
+				Pron.setCpfPro(PP.getCpf());
+				HeevoRepositorio<Prontuario> pronRepo = new ProntuarioRepositorioJdbc();
+				pronRepo.inserir(Pron);
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+		do { 
+			int IDPron = Pron.getUniqueID(); 
+			EntradaDAO.imprimirEntradas(IDPron);
+			System.out.println("[*] Menu Prontuario");
+			System.out.println("[*] 1-Nova Entrada, 2-Prescrever, 99-Voltar.");
+			System.out.print("[*] Selecione uma opção: "); 
+			codMenuPront = scanner.nextInt(); 
+			scanner.nextLine();  
+			switch (codMenuPront) { 
+				case 1:{
+					try { 
+						System.out.println("[*] Digite a Entrada:"); 
+						String entrada = scanner.nextLine(); 
+						EntradaDAO.novaEntrada(entrada, IDPron); 
+						}catch(Exception e) { 
+							System.out.println(e); 
+							} 
+					break; 
+					}
+
+				case 2:{ 
+					try { 
+						PrescricaoDAO.Prescrever(PP, existente); 
+						} catch(Exception e) {
+							System.out.println(e); 
+							} 
+					break; 
+					} 
+				case 99:{
+					System.out.println("\n[*] Saindo.."); sairMenuPront=true; 
+					break; } 
+				}
+			}
+		while(sairMenuPront==false); 
+		}
 
 }

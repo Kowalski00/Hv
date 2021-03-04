@@ -36,11 +36,9 @@ public class PacienteRepositorioJdbc implements HeevoRepositorio<Paciente> {
 	@Override
 	public void inserir(Paciente entidade) throws SQLException, IOException {
 		try(Connection conexao =FabricaConexaoJdbc.criarConexao())  {
-			PreparedStatement comando = conexao.prepareStatement("INSERT INTO pacientes (NOMpct, CPFpct, DTcriado) " + "VALUES (?, ?, ?)");
+			PreparedStatement comando = conexao.prepareStatement("INSERT INTO pacientes (NOMpct, CPFpct) " + "VALUES (?, ?)");
 			comando.setString(2, entidade.getCpf());// indice jdbc começa em 1, mySQL começa em 0
 			comando.setString(1, entidade.getNome());
-			Date data = new Date(1000000000);
-			comando.setDate(3, data);
 			comando.execute();
 		} 	
 	}
@@ -74,6 +72,12 @@ public class PacienteRepositorioJdbc implements HeevoRepositorio<Paciente> {
 			}
 		}
 		return paci;
+	}
+
+	@Override
+	public ArrayList<Paciente> listar(int ID) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -5,18 +5,17 @@ import java.util.Date;
 
 public class Entrada {
 	
-	private Long IDProntuario; // ID do Prontuario
+	private int IDProntuario; // ID do Prontuario
 	private String dataCriado; // Data de criação da entrada
 	private String descricao; // texto da entrada
 	
 	Date date = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 	
-	public Entrada(String texto, Long idPront) {
-		this.IDProntuario = idPront;
-		this.descricao = texto;
-		this.dataCriado = formatter.format(date);	
-	}
+	/*
+	 * public Entrada(String texto, Long idPront) { this.IDProntuario = idPront;
+	 * this.descricao = texto; this.dataCriado = formatter.format(date); }
+	 */
 
 	public String getDataCriado() {
 		return dataCriado;
@@ -36,17 +35,17 @@ public class Entrada {
 
 	
 	
-	public Long getIDProntuario() {
+	public int getIDProntuario() {
 		return IDProntuario;
 	}
 
-	public void setIDProntuario(Long iDProntuario) {
+	public void setIDProntuario(int iDProntuario) {
 		IDProntuario = iDProntuario;
 	}
 
 	@Override
 	public String toString() {
-		return "Entrada: \"" + dataCriado + "\", " + descricao+"Prontuário: "+IDProntuario;
+		return "Entrada: \"" + dataCriado + "\", " + "\n" + descricao;
 	}
 	
 	

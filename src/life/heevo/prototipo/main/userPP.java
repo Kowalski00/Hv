@@ -39,6 +39,7 @@ public class userPP {
 			}
 			case 3:{
 				try {
+					PacienteDAO.acessarPaciente(userPP);
 				}catch(Exception e) {
 					System.out.println(e);
 				}

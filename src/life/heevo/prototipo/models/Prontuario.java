@@ -15,25 +15,25 @@ import life.heevo.prototipo.DAO.EntradaDAO;
  *
  */
 public class Prontuario {
-	private String uniqueID; //Identificador do Prontuário
+	private int uniqueID; //Identificador do Prontuário
 	private String dataCriado; // Data de criação do prontuário (não da entrada)
 	private String cpf; // CPF do paciente
 	private String cpfPro; // CPF do profissional
 	private String nome; //nome do paciente
 	
-	Date date = new Date();
-	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-	
-	public Prontuario () {
-		this.dataCriado = formatter.format(date);
-	}
+	/*
+	 * Date date = new Date(); SimpleDateFormat formatter = new
+	 * SimpleDateFormat("dd-MM-yyyy HH:mm");
+	 * 
+	 * public Prontuario () { this.dataCriado = formatter.format(date); }
+	 */
 	
 
-	public String getUniqueID() {
+	public int getUniqueID() {
 		return uniqueID;
 	}
 	
-	public void setUniqueID(String uniId) {
+	public void setUniqueID(int uniId) {
 		this.uniqueID = uniId;
 	}
 
@@ -55,6 +55,10 @@ public class Prontuario {
 	
 	public String getDataCriado() {
 		return dataCriado;
+	}
+	
+	public void setDataCriado(String DT) {
+		this.dataCriado = DT;
 	}
 	
 	public String getNome() {

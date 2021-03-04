@@ -67,4 +67,10 @@ public class PPRepositorioJdbc implements HeevoRepositorio<PP> {
 		
 	}
 
+	@Override
+	public ArrayList<PP> listar(int ID) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
