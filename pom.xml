@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>life.heevo.pttp.web</groupId>
+  <artifactId>HeevoPttpWeb</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>Heevo - Protótipo</name>
+  <properties>
+  	<maven.compiler.source>1.5</maven.compiler.source>
+  	<maven.compiler.target>1.5</maven.compiler.target>
+  </properties>
+  <dependencies>
+  	<!-- Servlet -->
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
+  		<version>4.0.1</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	<!-- Struts2 -->
+  	<dependency>
+  		<groupId>org.apache.struts</groupId>
+  		<artifactId>struts2-core</artifactId>
+  		<version>2.5.22</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.struts</groupId>
+  		<artifactId>struts2-json-plugin</artifactId>
+  		<version>2.5.22</version>
+  	</dependency>
+  	<!-- Log4j -->
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-core</artifactId>
+  		<version>2.14.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-api</artifactId>
+  		<version>2.14.1</version>
+  	</dependency>
+  	<!-- JPA -->
+  	<dependency>
+  		<groupId>org.eclipse.persistence</groupId>
+  		<artifactId>javax.persistence</artifactId>
+  		<version>2.2.1</version>
+  	</dependency>
+  	<!-- Hibernate -->
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  		<version>5.3.7.Final</version>
+  	</dependency>
+  	<!-- Mysql -->
+  	<dependency>
+  		<groupId>mysql</groupId>
+  		<artifactId>mysql-connector-java</artifactId>
+  		<version>8.0.13</version>
+  	</dependency>
+  	<!-- JAXB -->
+  	<dependency>
+  		<groupId>javax.xml.bind</groupId>
+  		<artifactId>jaxb-api</artifactId>
+  		<version>2.3.0</version>
+  	</dependency>
+  </dependencies>
+  <build>
+  	<finalName>heevo-pttp</finalName>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.eclipse.jetty</groupId>
+  			<artifactId>jetty-maven-plugin</artifactId>
+  			<version>9.4.14.v20181114</version>
+  			<configuration>
+  				<webApp>
+  					<contextPath>/${build.finalName}</contextPath>
+  				</webApp>
+  				<scanTargets>
+  					<scanTarget>src/main/webapp/WEB-INF/web.xml</scanTarget>
+  				</scanTargets>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>
