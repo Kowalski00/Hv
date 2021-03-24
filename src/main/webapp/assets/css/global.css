@@ -1,0 +1,41 @@
+:root {
+    --color-blue:#226182;
+    --color-blue-dark:#042a49;
+    --color-white:#FCFCFC;
+    --color-grey:#D2D2D2;
+     --color-grey-dark:#192433fa;
+
+    font-size:62.5%
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+@font-face {
+    font-family: Futura;
+    src: url('/fonts/futura\ medium\ bt.ttf')
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: url('/fonts/proxima-nova.otf')
+}

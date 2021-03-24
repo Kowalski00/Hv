@@ -3,9 +3,14 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="HeevoPttpWeb" extends="struts-default, json-default">
-		<action name="index">
-			<result>/index.jsp</result>
-		</action>
+		<!-- Interceptors -->
+		<interceptors>
+			<interceptor name="authenticationInterceptor" class="life.heevo.pttp.web.interceptor.AuthenticationInterceptor"/>
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authenticationInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
 		<!-- PPs -->
 		<action name="paginaCadastroPP">
 			<result>/pages/pp/cadastrarPP.jsp</result>
@@ -27,13 +32,21 @@
 			</result>
 		</action>
 		<!-- Login -->
-		<action name="paginaLogin">
+		<action name="login">
 			<result>/pages/login.jsp</result>
 		</action>
-		<action name="loginPP" class="life.heevo.pttp.web.actions.LoginAction" method="logarPP">
-			<result name="success">/pages/pp/listarPPs.jsp</result>
-			<result name="error">/pages/pp/login.jsp</result>
-			<result name="input">/pages/pp/login.jsp</result>
+		<action name="login" class="life.heevo.pttp.web.actions.LoginAction">
+			<result name="success" type="redirect">task.action</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
+		<!-- Logout -->
+		<action name="logout" class="life.heevo.pttp.web.actions.LogoutAction">
+			<result name="success" type="redirect">login.action</result>
+		</action>
+		<action name="task">
+			<interceptor-ref name="secureStack"/>
+			<result>/pages/main.jsp</result>
+			<result name="login">/pages/login.jsp</result>
 		</action>
 	</package>
 </struts>

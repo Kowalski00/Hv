@@ -1,0 +1,190 @@
+body {
+    font-family: 'proxima-nova', sans-serif;
+}
+
+
+.container-main {
+    text-align: center;
+    margin-top:15rem;
+}
+
+.title-cadastro {
+    font-size: 6rem;
+    color: var(--color-blue);
+    margin-bottom: 2rem;
+}
+
+select#professional-select {
+    min-width: 270px;
+    padding: 1.2rem;
+    font-size: 2rem;
+    text-align: center;
+    background: var(--color-white);
+}
+
+select#professional-select option {
+    display: flex;
+    justify-content: center;
+}
+
+
+form.container-form {
+    width: 55%;
+    margin: 5rem auto;
+}
+
+.two-col {
+    display: grid;
+    grid-gap: 8%;
+    grid-template-columns:62% 30%;
+    justify-content:center;
+}
+
+
+
+.three-col {
+    display: grid;
+    grid-gap: 4%;
+    grid-template-columns:30% 31% 31%;
+    justify-content:center;
+}
+
+
+form.container-form .input {
+    padding: 0.6rem;
+    width: 100%;
+    margin: 2rem 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--color-white);
+    border: 1px solid rgb(141, 141, 141);
+    border-radius:8px;
+}
+
+
+form.container-form input:focus {
+    border-left: 2.5vw solid var(--color-blue);
+}
+
+form.container-form textarea {
+    width:100%;
+    overflow-y: scroll;
+    text-align: left;
+    height: 200px;
+    padding: 10px;
+    font-size: 2.4rem;
+    color: #000;
+    margin: 5rem 0;
+}
+
+.form-btns {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.terms {
+    display: grid;
+    grid-template-columns:1fr 1fr
+}
+
+.form-btns h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.form-btns h2 input {
+    margin-right: 1vw;
+}
+
+.form-btns .btn {
+    width: 15%;
+    min-width: 250px;
+    padding:1rem 2.3rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-blue);
+    color: #fff;
+    font-size: 1.8rem;
+    transition: 0.6s ease-in-out;
+}
+
+.form-btns .btn:hover {
+    background: #0a4779;
+}
+
+.form-btns .btn:disabled {
+    background:gray;
+}
+
+
+
+@media(max-width:750px) {
+    .title-cadastro {
+        font-size: 3.3rem;
+        color: var(--color-blue);
+        margin-bottom: 2rem;
+    }
+
+    form.container-form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    form.container-form .input {
+        margin: 2rem auto;
+    }
+
+    .form-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .terms {
+        width: 95%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    textarea#editor {
+        width: 100%;
+        margin-top:auto
+    }
+
+    .terms h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-btns .btn {
+        margin: 20px auto;
+    }
+
+}
+
+
+@media(max-width:1000px) {
+    .two-col {
+        display: block;
+    }
+
+    .three-col {
+        display: block;
+    }
+
+}
+
+@media (max-width:400px) {
+    .form-btns {
+        width: 100%;
+    }
+}
+
+
+
+
+
+

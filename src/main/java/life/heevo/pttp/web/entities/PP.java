@@ -60,7 +60,7 @@ public class PP {
 	private String LgrCom;
 	@Column(name = "RUACOMpp", nullable = true, length=255)
 	private String RuaCom;
-	@Column(name = "BAICOMpp", length=255)
+	@Column(name = "BAICOMpp", nullable = true, length=255)
 	private String BaiCom;
 	@Column(name = "CIDCOMpp", nullable = true, length=255)
 	private String CidCom;
@@ -70,7 +70,7 @@ public class PP {
 	private String TelRes;
 	@Column(name = "TELCOMpp", nullable = true, length=14)
 	private String TelCom;
-	@Column(name = "DTCRIADOpp")
+	@Column(name = "DTCRIADOpp", nullable = true)
 	@Temporal(value = TemporalType.DATE)
 	private Date DTCRIADOpp;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pp")

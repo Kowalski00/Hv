@@ -1,0 +1,124 @@
+body {
+    font-family: 'proxima-nova', sans-serif;
+}
+
+.container-main {
+    text-align: center;
+    margin-top:15rem;
+}
+
+.title-planos {
+    font-size: 6rem;
+    color: var(--color-blue);
+}
+
+.subtitle-planos  {
+    font-size: 3rem;
+    margin-top: 3vh;
+    color: rgba(27, 26, 26, 0.979);
+}
+
+
+/**********Grid**********/
+.container-grid {
+    width: 80vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    margin-top: 13rem;
+}
+
+.column {
+    color: #0a4779;
+    border: 1px solid #0c0c0c;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.column:hover {
+    background-color:var(--color-blue);
+    color: #fff;
+    transform:scale(1.02)
+}
+
+
+.column-title {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+
+.column-title h2,i {
+    font-size: 2.6rem;
+}
+
+.column-content {
+    border-bottom: 1px solid #000;
+    font-size: 2.1rem;
+    text-align: left;
+    min-height:330px
+}
+.comercio {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+}
+
+.column-content p {
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+.column-button {  
+    padding:2rem;
+    border-radius: 8px;
+    height:10%;
+}
+
+.column a {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding:1rem 2rem;
+    border-radius: 12px;
+    background: linear-gradient(to right,var(--color-blue),rgb(31, 118, 189));
+    color: #a0c5df;
+    font-size: 2rem;
+    transition: 0.4s ease-in-out;
+}
+
+.column a:hover {
+    background: linear-gradient(to right,rgb(15, 81, 136),#0a4779);
+}
+
+@media (max-width: 768px) {
+    .container-grid {
+        display: block;
+    }
+
+    .column {
+        margin-bottom: 8rem;
+    }
+}
+
+@media(max-width:400px) {
+    .title-planos {
+        font-size: 4rem;
+        color: var(--color-blue);
+    }
+    
+    .subtitle-planos  {
+        font-size: 1.7rem;
+        margin-top: 3vh;
+        color: rgba(27, 26, 26, 0.979);
+    }
+}
+
+
+
+
