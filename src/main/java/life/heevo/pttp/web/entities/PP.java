@@ -42,6 +42,8 @@ public class PP {
 	@Column(name = "DTNASCpp", nullable = true)
 	@Temporal(value = TemporalType.DATE)
 	private Date DTNASCpp;
+	@Column(name = "TIPpp", nullable = true, length=255)
+	private String TipPP;
 	@Column(name = "CEPRESpp", nullable = true, length=8)
 	private String CepRes;
 	@Column(name = "LGRRESpp", nullable = true, length=10)
@@ -64,7 +66,7 @@ public class PP {
 	private String BaiCom;
 	@Column(name = "CIDCOMpp", nullable = true, length=255)
 	private String CidCom;
-	@Column(name = "ESTCOMpp", nullable = true, length=255)
+	@Column(name = "ESTCOMpp", nullable = true, length=2)
 	private String EstCom;
 	@Column(name = "TELRESpp", nullable = true, length=14)
 	private String TelRes;
@@ -270,6 +272,18 @@ public class PP {
 
 	public void setProntuarios(List<Prontuario> prontuarios) {
 		this.prontuarios = prontuarios;
+	}
+
+
+
+	public String getTipPP() {
+		return TipPP;
+	}
+
+
+
+	public void setTipPP(String tipPP) {
+		TipPP = tipPP;
 	}
 	
 }

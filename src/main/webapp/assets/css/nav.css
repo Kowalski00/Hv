@@ -60,12 +60,17 @@ nav.prontuario {
     color: var(--color-blue);
     margin-right: 2rem;
     padding: 10px;
-
+    border: 1px solid white;
+    border-radius: 6.25rem;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    transition: border-color 1s ease;
 }
 
 .nav-links a:hover {
-    border: 1px solid #3d82a6;
-    border-radius: 6.25rem;
+    border-color: #3d82a6;
 }
 
 .btnCad{
@@ -83,6 +88,9 @@ nav.prontuario {
     -o-transition: background-color 1s ease;
     -ms-transition: background-color 1s ease;
     transition: background-color 1s ease;
+}
+.btnCad:hover{
+    background-color: hsl(201, 40%, 50%);
 }
 
 i.hamb {

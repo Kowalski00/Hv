@@ -28,7 +28,7 @@ select#professional-select option {
 }
 
 
-form.container-form {
+.container-form {
     width: 55%;
     margin: 5rem auto;
 }
@@ -50,7 +50,7 @@ form.container-form {
 }
 
 
-form.container-form .input {
+.input {
     padding: 0.6rem;
     width: 100%;
     margin: 2rem 1rem;
@@ -62,11 +62,11 @@ form.container-form .input {
 }
 
 
-form.container-form input:focus {
+.container-form input:focus {
     border-left: 2.5vw solid var(--color-blue);
 }
 
-form.container-form textarea {
+.container-form textarea {
     width:100%;
     overflow-y: scroll;
     text-align: left;

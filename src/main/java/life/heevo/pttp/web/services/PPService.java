@@ -62,7 +62,7 @@ public class PPService {
 		EntityManager em = null;
 		try {
 			em = JpaUtils.getEntityManager();
-			pp = em.createQuery("from PP p where lower(p.cpf) LIKE lower(concat('%',:cpf,'%'))",PP.class).setParameter("cpf", cpf).getSingleResult();
+			pp = em.createQuery("from PP p where lower(p.cpf) = :cpf",PP.class).setParameter("cpf", cpf).getSingleResult();
 			return pp;
 		} finally {
 			if(em!=null)

@@ -10,6 +10,7 @@
 <!--Favicon-->
 <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 <!--CSS/Font-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="./assets/css/global.css">
 <link rel="stylesheet" href="./assets/css/login.css">
 <link rel="stylesheet" href="./assets/css/nav.css">
@@ -18,92 +19,109 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 	crossorigin="anonymous" />
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
 <title>Heevo</title>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="prontuario">
-            <div class="container-nav2">
-                <div class="brand">
-                    <img src="./img/logo.png" alt="">
-                </div>
+	<!-- Header -->
+	<header> <nav class="prontuario">
+	<div class="container-nav2">
+		<div class="brand">
+			<img src="./img/logo.png" alt="">
+		</div>
 
-                <div id="dp" class="dados-profissional">
-                    <div class="container-dados">
-                            <h2>${sessionScope.pp.nome }</h2>
-                            ${sessionScope.pp.cpf }
-                        <h3 class="date"></h3>
-                    </div>
-                </div>
-                <button class="dados-btn">Ver dados</button>
-            </div>
-        </nav>
-    </header>
+		<div id="dp" class="dados-profissional">
+			<div class="container-dados">
+				<div class="dropdown">
+					<a  type="button"
+						id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">${sessionScope.pp.nome }</a>
+					<p>${sessionScope.pp.cpf }</p>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						<button class="dropdown-item" type="button">Action</button>
+						<button class="dropdown-item" type="button">Another
+							action</button>
+						<button class="dropdown-item" type="button">Something
+							else here</button>
+					</div>
+				</div>
+				<h3 class="date"></h3>
+			</div>
+		</div>
+		<button class="dados-btn">Ver dados</button>
+	</div>
+	</nav> </header>
 
-    <!--Main-->
-    <main>
-        <div class="container-main">
-            <section class="column-20">
-                <div class="id">
-                    <span><i class="fas fa-user"></i></span>
-                    <h2 class="name">Nome</h2>
+	<!--Main-->
+	<main>
+	<div class="container-main">
+		<section class="column-20">
+		<div class="id">
+			<span><i class="fas fa-user"></i></span>
+			<h2 class="name">Nome</h2>
 
-                    <div class="cpf">
-                        <i class="fas fa-id-card"></i>
-                        <h2>000.000.000-00</h2>
-                    </div>
+			<div class="cpf">
+				<i class="fas fa-id-card"></i>
+				<h2>000.000.000-00</h2>
+			</div>
 
-                    <div class="search">
-                        <input type="search" placeholder="Buscar cpf..">
-                    </div>
-                    
-                </div>
-            </section>
+			<div class="search">
+				<input type="search" placeholder="Buscar cpf..">
+			</div>
 
-            <section class="column-80">
-                <div class="abas">
-                    <div class="container-abas">
+		</div>
+		</section>
 
-                        <a href="prontuario.html" style="background-color: var(--color-blue)" class="link-content">
-                            <p style="color:#fff">Prontuário</p>
-                        </a>
-        
-                        <a href="prescricao.html"  class="link-content active">
-                            <p href="prescricao.html">Prescrição</p>
-                        </a>
-        
-                        <a class="link-content">
-                            <p>Histórico</p>
-                        </a>
-                    </div>
-                </div>
-                <textarea disabled   rows="12">
+		<section class="column-80">
+		<div class="abas">
+			<div class="container-abas">
+
+				<a href="prontuario.html"
+					style="background-color: var(- -color-blue)" class="link-content">
+					<p style="color: #fff">Prontuário</p>
+				</a> <a href="prescricao.html" class="link-content active">
+					<p href="prescricao.html">Prescrição</p>
+				</a> <a class="link-content">
+					<p>Histórico</p>
+				</a>
+			</div>
+		</div>
+		<textarea disabled rows="12">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </textarea> <textarea rows="12">
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 </textarea>
-                <textarea  rows="12">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                </textarea>
-                <div class="btn-container">
-                    <button>Anexar</button>
-                    <button>Salvar</button>
-                </div>
-            </div>
-        </section>
-    </main>
+		<div class="btn-container">
+			<button>Anexar</button>
+			<button>Salvar</button>
+		</div>
+	</div>
+	</section> </main>
 
-<script src="./assets/js/nav.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script>
-
-let date = moment().format('DD-MM-YYYY HH:mm');
-function data() {
-    document.querySelector(".date").innerHTML = date;
-}
-data()
-
-</script>
+	<script src="./assets/js/nav.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+		integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+		crossorigin="anonymous"></script>
+	<script>
+		let date = moment().format('DD-MM-YYYY HH:mm');
+		function data() {
+			document.querySelector(".date").innerHTML = date;
+		}
+		data()
+	</script>
 </body>
 </html>

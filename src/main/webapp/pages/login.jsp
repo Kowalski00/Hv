@@ -31,7 +31,8 @@
 			<a href="#">Sobre</a> <a href="#">FAQ</a>
 		</div>
 
-		<div class="btnCad">Cadastro</div>
+		<s:url action="paginaCadastroPP" var="pagCadPPUrl"></s:url>
+		<div ><s:a cssClass="btnCad" href="%{pagCadPPUrl}">Cadastrar</s:a></div>
 
 		<i class="fas fa-bars hamb"></i>
 
@@ -46,24 +47,21 @@
 			<img src="./img/LOGO HEEVO.png" alt="">
 		</div>
 
-		<s:form action="login" method="post">
+		<s:form cssClass="login-form" action="loginPP" method="post">
 			<s:textfield cssClass="input-login cpf" name="pp.cpf"
-				placeholder="CPF" />
+				placeholder="CPF (Somente números)" />
 			<s:textfield cssClass="input-login cpf" name="pp.senha"
 				placeholdeer="Senha" disabled="true" />
-			<s:submit value="Login" />
+			<s:submit cssClass="btn-login" value="Login" />
 
-			<a class="forgot" href="#">Esqueci a senha</a>
-			<a href="#" class="btn-login">Entrar</a>
-			<a href="#" disabled="disabled" class="btn-login">Cadastrar</a>
-			<a class="forgot" href="cadastro-profissional.html">É paciente ?<br>
-				<span>realize seu cadastro aqui</span>
-			</a>
+			
 		</s:form>
+		<s:a cssClass="forgot" href="#">Esqueci a senha</s:a>
+		<s:a cssClass="forgot" href="cadastro-profissional.html">É paciente ?<br>
+				<span>realize seu cadastro aqui</span>
+		</s:a>
 	</div>
 	</main>
-
-	<footer> </footer>
 
 	<script src="./assets/js/nav.js"></script>
 	<script src="./assets/js/login.js"></script>

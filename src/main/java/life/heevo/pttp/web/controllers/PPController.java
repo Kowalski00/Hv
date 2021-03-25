@@ -92,5 +92,4 @@ public class PPController extends ActionSupport {
 	public List<PP> getPpsPorNome() {
 		return ppsPorNome;
 	}
-
 }

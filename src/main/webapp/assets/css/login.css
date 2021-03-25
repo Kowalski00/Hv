@@ -5,8 +5,9 @@ body {
 }
 
 .container-main {
-    margin-top:3rem;
-    height: 150vh;
+    margin-top:5rem;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -17,51 +18,64 @@ body {
     width: 25rem;
 }
 
-form {
+.login-form {
     display: flex;
     flex-direction: column;
 }
 
-form .input-login { 
-    width: 30vw;
+.input-login { 
+    width: 25vw;
     min-width: 280px;
-    padding: 1.4rem;
+    padding: 1.2rem;
     margin-bottom: 2rem;
-    font-size: 1.8rem
+    font-size: 1.6rem;
+    border-radius: 0.6rem;
+    border: 0px solid white;
 }
 
-form .input-login:focus {
+.input-login:focus {
     outline:0;
     border-left: 20px solid var(--color-blue);
 }
 
-form .forgot {
+.forgot {
     font-size: 2rem;
     color: var(--color-white);
     text-align: center;
     margin-bottom: 2rem;
     text-decoration: underline;
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    -ms-transition: color 0.5s ease;
+    transition: color 0.5s ease;
 }
 
-form .forgot:hover {
-    color: var(--color-blue);
+.forgot:hover {
+    color: #a0a0a0;
 }
 
-form .btn-login {
+.btn-login {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 10%;
     margin-bottom: 2rem;
-    padding: 1rem 2.3rem;
+    padding: 0.8rem 2rem;
     border-radius: 15px;
-    background: linear-gradient(to right,var(--color-blue),rgb(31, 118, 189));
-    color: #a0c5df;
+    border: 0px white solid;
+    background: #226182;
+    color: white;
     font-size: 2rem;
     text-align: center;
-    transition:0.6s;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 
-form .btn-login:hover {
-    background: linear-gradient(to right,rgb(15, 81, 136),#0a4779);
+.btn-login:hover {
+    background-color: hsl(201, 40%, 50%);
 }
 
 footer {

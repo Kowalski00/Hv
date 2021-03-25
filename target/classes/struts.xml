@@ -35,7 +35,7 @@
 		<action name="login">
 			<result>/pages/login.jsp</result>
 		</action>
-		<action name="login" class="life.heevo.pttp.web.actions.LoginAction">
+		<action name="loginPP" class="life.heevo.pttp.web.actions.LoginAction">
 			<result name="success" type="redirect">task.action</result>
 			<result name="input">/pages/login.jsp</result>
 		</action>
