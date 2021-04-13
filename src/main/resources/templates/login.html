@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" th:href="@{/css/global.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <!--Favicon-->
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon"/>
+    <!--CSS/Font-->
+    <link rel="stylesheet" th:href="@{/css/global.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>Login Heevo</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="container-nav">
+                <div class="brand">
+                    <img th:src="@{/img/logo.png}" alt=""/>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#">Sobre</a>
+                    <a href="#">FAQ</a>
+                </div>
+
+                <div class="btnCad">
+                    Cadastro
+                </div>
+
+                <i class="fas fa-bars hamb"></i>
+
+            </div>
+        </nav>
+    </header>
+
+    <!--Main-->
+    <main>
+       <div class="container-main">
+
+           <div id="logo-main">
+               <img th:src="@{/img/LOGO HEEVO.png}" alt=""/>
+           </div>
+
+           <form method="post" th:action="@{/login}">
+           		<div th:if="${alerta != null}" th:class="${alerta == 'erro' ? 'alert alert-danger' : 'alert alert-success'}" role="alert">
+           			<h4 th:text="${titulo}" class="alert-heading">Credenciais</h4>
+           			<p th:text="${text}">Login ou senha incorretos</p>
+           			<hr></hr>
+           			<p class="mb-0"><small th:text="${subtexto}">Acesso permitido</small></p>
+           		</div>
+	            <input class="input-login cpf" type="text" name="username" placeholder="CPF" required="required"/>
+	            <input class="input-login" type="password" name="password" placeholder="senha" required="required"/>
+	            <a class="forgot" href="#">Esqueci a senha</a>
+	            <button class="btn-login" type="submit">Entrar</button>
+	            <a href="#" disabled="disabled" class="btn-login">Cadastrar</a>
+	            <a class="forgot" href="cadastro-profissional.html">É paciente ?<br></br>
+	            	<span>realize seu cadastro aqui</span>
+	            </a>
+           </form>
+       </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+<script th:src="@{/assets/js/nav.js}"></script>
+<script th:src="@{/assets/js/login.js}"></script>
+</body>
+</html>

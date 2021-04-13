@@ -1,0 +1,78 @@
+
+body {
+    font-family: 'proxima-nova', sans-serif;
+    background: linear-gradient(360deg,var(--color-blue),#a0c5df);
+}
+
+.container-main {
+    margin-top:3rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+#logo-main img {
+    width: 25rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .input-login { 
+    width: 30vw;
+    min-width: 280px;
+    padding: 1.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem
+}
+
+form .input-login:focus {
+    outline:0;
+    border-left: 20px solid var(--color-blue);
+}
+
+form .forgot {
+    font-size: 2rem;
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+}
+
+form .forgot:hover {
+    color: var(--color-blue);
+}
+
+form .btn-login {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 1rem 2.3rem;
+    border-radius: 15px;
+    background: linear-gradient(to right,var(--color-blue),rgb(31, 118, 189));
+    color: #a0c5df;
+    font-size: 2rem;
+    text-align: center;
+    transition:0.6s;
+}
+
+form .btn-login:hover {
+    background: linear-gradient(to right,rgb(15, 81, 136),#0a4779);
+}
+
+footer {
+    width:100vw;
+    height: 60px;
+    background:#0a4779;
+}
+
+@media (max-width:525px) {
+    .download-links {
+        width: 80vw;
+    }
+}
+

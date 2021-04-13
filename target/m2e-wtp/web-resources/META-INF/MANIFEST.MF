@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: rk
+Build-Jdk: 11.0.10
+Implementation-Title: HeevoPttpSB
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: life.heevo.pttp.sb
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/HeevoPttpSB
+Created-By: Maven Integration for Eclipse
+

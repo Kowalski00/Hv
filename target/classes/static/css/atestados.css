@@ -1,0 +1,305 @@
+body {
+    font-family: 'proxima-nova', sans-serif;
+}
+
+.active {
+    background: #fff;
+    
+}
+.container-abas {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.abas {
+    margin-top:10rem;
+    width: 100%;
+    height:5rem;
+    background: var(--color-grey);
+    display: flex;
+    justify-content: space-between;
+    box-shadow:2px 2px 17px #000000
+}
+
+
+a.link-content {
+    text-align: center;
+    border-bottom:1px solid rgb(80, 80, 80);
+    background: var(--color-white);
+    border-radius: 20px 20px 0px 0px;
+    margin: 0 2px;
+}
+
+.link-content:hover {
+    background: var(--color-blue);
+}
+
+.abas p {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-blue);
+    line-height: 7vh;
+}
+
+.abas p:hover {
+    color: #fff;
+}
+
+
+.container-main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.column-20 {
+    text-align: center;
+    padding: 1rem;
+    background: var(--color-grey-dark);
+    color: var(--color-grey);
+    margin-top: 10rem;
+}
+
+
+.column-20 .id {
+    margin-top: 5vh;
+    font-size: 1.3rem;
+}
+
+.column-20 .id .prescicao {
+    margin-top: 5vh;
+    font-weight: bold;
+}
+
+.column-20 .id a {
+    margin-top: 2.7vh;
+    display:block;
+    font-size: 2.3rem;
+    padding: 1rem 0;
+    color: #265db1;
+    font-weight: bold;
+}
+
+.column-20 .id a:hover {
+    text-decoration: underline;
+}
+
+
+.column-20 i {
+    font-size:2rem;
+    margin-right: 1rem;
+}
+
+.column-20 .cpf {
+    margin:5vh 0;
+}
+
+.column-20 .search {
+    width:100%;
+    position: relative;
+    margin: 2vh 0;
+}
+
+.column-20 .search input {
+    border-radius: 20px;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1.8rem;
+}
+
+.column-20 .search input:focus {
+    border-left: 2vw solid var(--color-blue);
+}
+
+.column-20 button {
+    width:88.5%;
+    min-width: 220px;
+    margin: 1vh auto;
+    padding: 0.3rem;
+    background: #1e2837;
+    border:none;
+    border-radius: 20px;
+    font-weight:bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.column-20 button:hover {
+    background:var(--color-blue)
+}
+
+.column-80 {
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 120vh;
+}
+
+.presets  {
+    width: 95%;
+    margin: 1% auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.presets select {
+    height: 5rem;
+    width: 30%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.8rem;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+.presets select:hover {
+    border: 1px solid black;
+}
+
+.presets select:focus {
+    border: 1px solid black;
+}
+
+.column-80-content {
+    width: 95%;
+    margin: 1% auto;
+    background: var(--color-white);
+    min-height:60vh;
+}
+
+.column-80-content .select {
+    margin: 2%;
+    display: flex;
+    justify-content:flex-start;
+}
+
+.column-80-content .text {
+    display: flex;
+    justify-content: center;
+}
+
+.column-80-content .text textarea {
+    width: 90%;
+    font-size: 2.2rem;
+}
+
+section.add-med {
+    width: 90%;
+    margin: 5% 5%;
+}
+
+.btn-container {
+    width: 90%;
+    margin: 5vh auto;
+    display:flex;
+    justify-content:space-between;
+}
+
+.btn-container h2 {
+    font-size: 2rem
+}
+
+.btn-container button {
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+    width: 10vw;
+    min-width: 140px;
+    padding:1rem 2rem;
+    border: none;
+    border-radius: 20px;
+    background: var(--color-blue);
+    color: #fff;
+    font-size: 1.8rem;
+    transition: 0.6s ease-in-out;
+}
+
+.btn-container button:hover {
+    background: #0a4779;
+}
+
+@media (max-width:700px) {
+    .container-dados h3 {
+        margin-left: 2vw;
+    }
+    .column-80-content .select {
+        margin: 2% 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .column-80-content select {
+        width: 100%;
+        margin-bottom: 4%;
+    }
+
+    .presets input,.select input {
+        width:100%;
+    }
+
+    section.add-med {
+        width: 90%;
+        margin:30% auto;
+    }
+
+
+    .btn-container {
+        display: block;
+        margin-top: 2vh;
+    }
+
+    .btn-container h2 {
+        width: 80%;
+        margin: 2rem 23%;
+    }
+
+    .btn-container button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:540px) {
+    html {
+        font-size: 55%;
+    }
+
+    .container-dados h2 {
+        font-size: 16px;
+    }
+
+    .abas a{
+        font-size: 1.7rem;
+    }
+
+    .link-content {
+        margin: 0;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .column-20 {
+        height: 80vh;
+    }
+
+    .column-20 .id {
+        margin-top: -0.1rem;
+    }
+
+    .column-80 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-main {
+        display: block;
+    }
+
+    .btn-container {
+        justify-content:center;
+    }
+
+}
