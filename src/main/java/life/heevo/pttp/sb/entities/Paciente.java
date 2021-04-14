@@ -3,12 +3,16 @@ package life.heevo.pttp.sb.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -56,6 +60,9 @@ public class Paciente {
 	private Date dataCriado;
 	@OneToMany(mappedBy = "paciente")
 	private List<Prontuario> prontuarios;
+	@OneToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "id")
+	private Usuario usuario;
 	
 	public Paciente() {
 	}
@@ -171,5 +178,8 @@ public class Paciente {
 	public void setProntuarios(List<Prontuario> prontuarios) {
 		this.prontuarios = prontuarios;
 	}
+
+	
+	
 
 }

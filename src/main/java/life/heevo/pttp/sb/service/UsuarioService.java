@@ -1,6 +1,5 @@
 package life.heevo.pttp.sb.service;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import life.heevo.pttp.sb.entities.Perfil;
 import life.heevo.pttp.sb.entities.Usuario;
 import life.heevo.pttp.sb.repositories.UsuarioRepo;
 
@@ -33,11 +33,11 @@ public class UsuarioService implements UserDetailsService{
 		return new User(
 				usuario.getCpf(),
 				usuario.getPassword(),
-				AuthorityUtils.createAuthorityList(getAuthorities(usuario))
+				AuthorityUtils.createAuthorityList(getAuthorities(usuario.getPerfis()))
 			);
 	}
 	
-	private String[] getAuthorities(List<Perfis> perfis) {
+	private String[] getAuthorities(List<Perfil> perfis) {
 		String[] authorities = new String[perfis.size()];
 		for (int i = 0; i < perfis.size(); i++) {
 			authorities[i] = perfis.get(i).getDesc();

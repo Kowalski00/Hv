@@ -8,6 +8,6 @@ import life.heevo.pttp.sb.entities.Usuario;
 
 public interface UsuarioRepo extends JpaRepository<Usuario, Long>{
 
-	@Query("SELECT u FROM Usuario WHERE u.cpf = :cpf")
+	@Query("SELECT u FROM Usuario u WHERE u.cpf = :cpf")
 	Usuario finByCpf(@Param("cpf") String cpf);
 }

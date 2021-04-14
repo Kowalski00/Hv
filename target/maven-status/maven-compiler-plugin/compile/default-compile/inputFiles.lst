@@ -1,12 +1,16 @@
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Usuario.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Entrada.java
+D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\PerfilTipo.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\controllers\HomeController.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Medicamento.java
+D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\repositories\UsuarioRepo.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\service\PPService.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\security\SecurityConfig.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\Application.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Paciente.java
+D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\service\UsuarioService.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Prescricao.java
+D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\Perfil.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\controllers\PPController.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\repositories\PPRepo.java
 D:\EWorkSpace\HeevoPttpSB\src\main\java\life\heevo\pttp\sb\entities\PP.java
