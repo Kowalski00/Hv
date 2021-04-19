@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"></meta>
+	
+	<link rel="shortcut icon" th:href="@{static/img/favicon.ico}" type="image/x-icon"/>
+	
+    <title>Cadastro de usuários</title>
+    
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.1.1-1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" th:href="@{/css/global.css}"/>
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}"/>
+    <title>Cadastro Profissionais</title>
+</head>
+<body>
+<!-- Header -->
+    <header>
+        <nav>
+            <div class="container-nav">
+                <div class="brand">
+                     <img th:src="@{/img/logo.png}" alt=""/>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#">Sobre</a>
+                    <a href="#">FAQ</a>
+                </div>
+                
+                 <div sec:authorize="isAuthenticated()">
+	                <div id="dp" class="dados-profissional">
+	                    <div class="container-dados">
+	                            <h2 sec:authentication="name">Nome</h2>
+	                            <h3>CRM/CRO</h3>
+	                        <h3 class="date"></h3>
+	                    </div>
+	                </div>
+	                 <form th:action="@{/logout}" method="post">
+	                	<button type="submit">Logout</button>
+	                </form>
+                </div>
+
+                <i class="fas fa-bars hamb"></i>
+
+            </div>
+        </nav>
+    </header>
+
+    <!--Main-->
+    <main>
+        <div class="container-main">
+            <h2 class="title-cadastro">
+                Cadastro
+            </h2>
+<!--             <select id="professional-select"> -->
+<!--                 <option value="profissional">Profissional de saude</option> -->
+<!--                 <option value="paciente">Paciente</option> -->
+<!--                 <option value="comercio">Comercio</option> -->
+<!--             </select> -->
+
+            <form action="" class="container-form"  method="post" th:object="${usuario}">
+                <div class="form-cadastro">
+
+<!--                     <input class="input" id="name" type="text" placeholder="Nome completo" th:field="*{nome}" /> -->
+                    <input class="input" id="cpf" type="number" placeholder="CPF" th:field="*{cpf}"/>
+<!--                     <input class="input" id="email" type="email" placeholder="E-mail" th:field="*{email}"/> -->
+                    
+                    <input class="input" id="senha" type="password" placeholder="Senha" th:field="*{password}"/>
+                    <input class="input" id="confirmar-senha" type="password" placeholder="Confirmar senha"/>
+                    
+                    <div class="mb-3">
+								<label for="perfis">Perfil</label>
+								<select id="perfis" class="custom-select" size="4"
+										th:field="*{perfis}" multiple required>
+									<option value="1">Administrador</option>
+									<option value="2">Médico</option>
+									<option value="3">Paciente</option>
+								</select>
+
+								<div class="invalid-feedback">Pelo menos um perfil é requerido.</div>
+					</div>
+
+
+                </div>
+
+               
+
+                <div class="form-btns">
+                    <input class="btn" type="submit" value="Salvar e Enviar"></input>
+
+                    
+                </div>
+            </form>
+        </div>
+        <script th:src="@{/js/nav.js}"></script>
+		<script th:src="@{/js/cadastro.js}"></script>
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		
+		</main>
+</body>
+</html>
